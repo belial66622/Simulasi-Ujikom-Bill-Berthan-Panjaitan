@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 
 namespace simulasi.mainmenu { 
-public class MainMenu : MonoBehaviour
+public class HomeScene : MonoBehaviour
 {
         [SerializeField] Button _play, _themeSelection;
 
