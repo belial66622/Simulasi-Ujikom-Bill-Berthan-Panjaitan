@@ -11,15 +11,17 @@ public class TileGroup : MonoBehaviour
     [SerializeField] GameObject[,] _tile;
     GameObject one, two;
     bool change = true;
-    int random;
+    int random,tilecount;
+    float _posx, _posy;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        position(this.transform);
         _sprite = ThemeDatabase.instance.themedata._theme[1]._tile;
         CreateTileGroup();
         randomizer(_tile);
+        tilecount = _tile.Length;
     }
 
 
@@ -37,9 +39,10 @@ public class TileGroup : MonoBehaviour
                     random = Random.Range(0, _sprite.Length);
                 }
 
-                float x = -5 + col * 0.6f;
-                float y =  2 - row * 0.6f;
+
                 _tile[col,row] = Instantiate(_tileobject,transform);
+                float x = _tile[col, row].transform.position.x + (col * 0.6f);
+                float y = _tile[col, row].transform.position.y - (row * 0.6f);
                 _tile[col,row].transform.position = new Vector2(x, y);
                 _tile[col,row].GetComponent<SpriteRenderer>().sprite = _sprite[random]; 
                 _tile[col,row].transform.name = _tile[col,row].GetComponent<SpriteRenderer>().sprite.name;
@@ -83,12 +86,18 @@ public class TileGroup : MonoBehaviour
             two = a;
         }
 
-        if (one != null && two != null )
+        checktile();
+    }
+
+    void checktile()
+    {
+        if (one != null && two != null)
         {
             if (one.name == two.name && one != two)
             {
                 Destroy(one);
                 Destroy(two);
+                tilecount -= 2;
             }
 
             else
@@ -96,7 +105,18 @@ public class TileGroup : MonoBehaviour
                 one = null;
                 two = null;
             }
+
         }
+
+        if (tilecount == 0)
+            Debug.Log("menang");
     }
 
+
+    void position(Transform c)
+    {
+        _posx = 0.27f * -_col;
+        _posy = 0.27f * _row;
+        c.position = new Vector2(_posx, _posy);
+    }
 }
