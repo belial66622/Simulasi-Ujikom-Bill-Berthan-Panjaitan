@@ -264,6 +264,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1 &573820168
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _row: 10
   _col: 20
-  _tile: {fileID: 9077148324746922645, guid: 1bbe9e2fcf53a0a45bc9ca85ff5e4751, type: 3}
+  _tileobject: {fileID: 9077148324746922645, guid: 1bbe9e2fcf53a0a45bc9ca85ff5e4751, type: 3}
   _sprite: []
 --- !u!4 &1958789342
 Transform:
@@ -814,3 +815,4 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9833449c0bc335249b95bda470e7f6cb, type: 3}
+

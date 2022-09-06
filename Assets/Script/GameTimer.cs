@@ -14,7 +14,8 @@ namespace simulasi.gameTimers
         void Start()
         {
 
-                StartCoroutine(timer());
+            TimerTick?.Invoke(time);
+            StartCoroutine(timer());
 
         }
 
@@ -28,9 +29,12 @@ namespace simulasi.gameTimers
         {
             while (time > 0)
             {
-                TimerTick?.Invoke(time);
-                yield return new WaitForSeconds(1);
+
                 time -= 1;
+                yield return new WaitForSeconds(1);
+                TimerTick?.Invoke(time);
+
+
             }
 
 

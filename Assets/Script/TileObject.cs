@@ -8,15 +8,18 @@ namespace simulasi.tileObject
 {
     public class TileObject : MonoBehaviour, IClicked
     {
-        public event Action<string> OnClick;
+
+        public event Action<GameObject> Onclick;
+
 
         void start() 
         { 
         }
-        public virtual void Name(string tile)
+
+        public virtual void Name(GameObject tile)
         {
-            OnClick?.Invoke(tile);
-            Debug.Log(tile);
+            Onclick?.Invoke(tile);
+
         }
     }
 }

@@ -48,7 +48,7 @@ namespace simulasi.inputRay
                     if (klik != null)
                     {
                         Debug.Log(hit.collider.name);
-                        klik.Name(hit.collider.name);
+                        klik.Name(hit.collider.gameObject);
                     }
                 }
 
